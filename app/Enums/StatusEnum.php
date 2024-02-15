@@ -5,7 +5,8 @@ namespace App\Enums;
 enum StatusEnum:string
 {
 
-    case BUY = 'Kúpiť';
-    case SOLD = 'Predané';
+    case AVAILABLE = 'available';
+    case RESERVED = 'reserved';
+    case SOLD = 'sold';
 
 }

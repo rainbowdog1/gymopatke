@@ -2,11 +2,11 @@
 
 namespace App\Enums;
 
-enum ConditionEnum:string
+enum ConditionEnum: string
 {
 
-    case NEW = 'Nové';
-    case USED = 'Používané';
-    case BAD = 'Zlá';
+    case NEW = 'new';
+    case USED = 'used';
+    case BAD = 'bad';
 
 }

@@ -5,9 +5,10 @@ namespace App\Enums;
 enum SubjectEnum:string
 {
 
-    case MATHS = 'Matematika';
-    case SLOVAK = 'Slovenčina';
-    case GERMAN = 'Nemčina';
-    case ENGLISH = 'Angličtina';
+    case MATHS = 'maths';
+    case SLOVAK = 'slovak';
+    case GERMAN = 'german';
+    case ENGLISH = 'english';
+    case OTHER = 'other';
 
 }

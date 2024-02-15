@@ -17,10 +17,11 @@ return new class extends Migration
             $table->foreignIdFor(User::class);
             $table->string('name');
             $table->string('subject');
-            $table->string('class');
             $table->double('price');
             $table->string('condition');
+            $table->string('cleanliness');
             $table->string('status');
+            $table->string('photo_path');
             $table->timestamps();
         });
     }

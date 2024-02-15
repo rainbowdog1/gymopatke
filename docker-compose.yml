@@ -27,6 +27,7 @@ services:
             - meilisearch
             - mailpit
             - selenium
+            - phpmyadmin
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
@@ -72,6 +73,7 @@ services:
             - '${FORWARD_MEILISEARCH_PORT:-7700}:7700'
         environment:
             MEILI_NO_ANALYTICS: '${MEILISEARCH_NO_ANALYTICS:-false}'
+            MEILI_MASTER_KEY: 'jwuJfg5rvLLVnHhpX87epNepusXdaFkG'
         volumes:
             - 'sail-meilisearch:/meili_data'
         networks:
@@ -100,6 +102,14 @@ services:
             - '/dev/shm:/dev/shm'
         networks:
             - sail
+    phpmyadmin:
+        image: 'phpmyadmin:latest'
+        ports:
+            - 8080:80
+        networks:
+            - sail
+        environment:
+            - PMA_ARBITRARY=1
 networks:
     sail:
         driver: bridge

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdvertisementController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -24,10 +25,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/search', function () {
-    return Inertia::render('Custom/Search');
-});
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -36,4 +33,12 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
+    Route::get('/myads', [\App\Http\Controllers\AdvertisementController::class, 'indexUserOwned'])->name('userOwned');
+
+    Route::controller(AdvertisementController::class)->prefix('/ads')->name('ads.')->group(function () {
+        Route::get('/search', 'index')->name('search');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+    });
 });

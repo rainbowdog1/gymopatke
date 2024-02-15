@@ -19,5 +19,6 @@ return [
         Features::rememberSession(),
         Features::providerAvatars(),
         Features::refreshOAuthTokens(),
+        Features::createAccountOnFirstLogin(),
     ],
 ];
